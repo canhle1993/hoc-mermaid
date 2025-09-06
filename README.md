@@ -1,4 +1,26 @@
 # Test Mermaid trên GitHub
+## Luồng hoạt động hệ thống
+
+```mermaid
+flowchart TD
+    A[Khởi động Raspberry Pi] --> B[PIR Sensor quét chuyển động]
+    B -->|Không có chuyển động| B
+    B -->|Có chuyển động| C[Ultrasonic đo khoảng cách]
+    C -->|Khoảng cách > Ngưỡng| B
+    C -->|Khoảng cách < Ngưỡng| D[Xử lý trên Raspberry Pi]
+
+    D --> E[Bật Camera ghi hình/chụp ảnh]
+    D --> F[Bật Microphone ghi âm]
+    D --> G[Bật Buzzer cảnh báo]
+
+    E --> H[Gửi dữ liệu qua Wi-Fi/Ethernet]
+    F --> H
+    G --> H
+
+    H --> I[Mobile/Laptop nhận cảnh báo]
+    I --> J[Xem video/hình ảnh live]
+    I --> K["Người dùng điều khiển từ xa (tắt buzzer, bật giám sát lại)"]
+```
 ## Biểu đồ đầu tiên của tôi
 ```mermaid
 graph LR
